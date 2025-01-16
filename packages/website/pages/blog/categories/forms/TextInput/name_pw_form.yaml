@@ -7,27 +7,26 @@ blocks:
     properties:
       content: |
         ```yaml
-        - id: First Name
-          type: TextInput
-          properties:
-            type: text
+          - id: First Name
+            type: TextInput
+            layout: 
+              span: 12
+            properties:
+              type: text
 
-        - id: Last Name
-          type: TextInput
-          required: true
-          properties:
-            type: text
+          - id: Last Name
+            type: TextInput
+            layout: 
+              span: 12
+            properties:
+              type: text
 
-        - id: Email Address
-          type: TextInput
-          required: true
-          properties:
-            type: email
-
-        - id: Password
-          type: TextInput
-          properties:
-            type: password
+          - id: Password
+            type: TextInput
+            layout: 
+              span: 12
+            properties:
+              type: password
         ```
 
   - id: text_form_column
@@ -56,15 +55,8 @@ blocks:
             type: TextInput
             layout: 
               span: 12
-            required: true
             properties:
               type: text
-
-          - id: Email Address
-            type: TextInput
-            required: true
-            properties:
-              type: email
 
           - id: Password
             type: TextInput

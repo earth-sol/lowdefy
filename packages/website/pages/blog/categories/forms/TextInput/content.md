@@ -15,13 +15,12 @@ Some examples of Lowdefy's Input Blocks include:
 
 TextInput blocks have a `type` field, allowing them to adapt to the requirements of different use cases.
 
-Let's consider a form with 4 TextInput blocks.
+In the example below, the name fields are configured with the basic `text` type property.
+The password field masks the user's input by replacing their input with dots.
 
 ```yaml ldf
-_ref: pages/blog/categories/forms/TextInput/text_form.yaml
+_ref: pages/blog/categories/forms/TextInput/name_pw_form.yaml
 ```
-
-The password field masks the user's input by replacing their input with dots, and also integrates with their password management tools.
 
 Other types include `url` and `number`.
 
@@ -41,24 +40,27 @@ With the example above, the user would not be allowed to submit the form without
 
 In order to mark a field as required, its validation criteria must be set with the `Validate` action.
 
-Errors can occur as the result of user typos or incorrect formatting.
+Input errors can occur for a few reasons, such as user typos or incorrect formatting.
 Data validation prevents these errors, and error messages can show the user how to correct them.
-
-1. User typos
-2. Unclear labels
-3. Incorrect formatting
-4. Poor data sanitisation
 
 The `Validate` action is generally configured to run before inserting information into a database with a request.
 If the field's criteria are not met, the `Validate` action will fail, which will stop the execution of actions that are defined after it.
 
 A common use case for this action would be to ensure that an email address includes an "@" symbol and ends with a top-level domain (e.g, ".com").
+This can be accomplished with regex, as seen in the example below.
 
-The `Validate` action can target specific blocks with either the `blockIds` or `regex` params.
+```yaml ldf
+_ref: pages/blog/categories/forms/TextInput/email_validate.yaml
+```
+
+Note that the regex above has been truncated. The complete pattern can be seen below.  
+`'^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'`
 
 The first time a `Validate` action is called, validation errors and warnings are shown to the user.
 
 Following this, the validation can be reset with the `ResetValidation` action. To reset both the validation status and the page state, the `Reset` action can be used instead.
+
+The `Validate` action can also target specific blocks with the `blockId` or `blockIds` params.
 
 ### Properties
 

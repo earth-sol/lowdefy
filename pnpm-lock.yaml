@@ -77,7 +77,7 @@ importers:
         version: 0.2.29(@swc/core@1.3.99(@swc/helpers@0.5.2))
       jest:
         specifier: 28.1.3
-        version: 28.1.3(@types/node@16.18.101)
+        version: 28.1.3(@types/node@20.6.2)
 
   packages/build:
     dependencies:
@@ -219,7 +219,7 @@ importers:
         version: 0.2.29(@swc/core@1.3.99(@swc/helpers@0.5.2))
       jest:
         specifier: 28.1.3
-        version: 28.1.3(@types/node@20.6.2)
+        version: 28.1.3(@types/node@16.18.101)
 
   packages/cli:
     dependencies:
@@ -1953,6 +1953,9 @@ importers:
       '@lowdefy/connection-axios-http':
         specifier: 4.4.0
         version: link:../../plugins/connections/connection-axios-http
+      '@lowdefy/connection-mongodb':
+        specifier: 4.4.0
+        version: link:../../plugins/connections/connection-mongodb
       '@lowdefy/engine':
         specifier: 4.4.0
         version: link:../../engine
@@ -1989,6 +1992,9 @@ importers:
       '@lowdefy/operators-yaml':
         specifier: 4.4.0
         version: link:../../plugins/operators/operators-yaml
+      '@lowdefy/plugin-aws':
+        specifier: 4.4.0
+        version: link:../../plugins/plugins/plugin-aws
       '@lowdefy/plugin-next-auth':
         specifier: 4.4.0
         version: link:../../plugins/plugins/plugin-next-auth
@@ -2365,6 +2371,13 @@ importers:
         version: 5.1.4(webpack@5.89.0)
 
   packages/website:
+    dependencies:
+      '@lowdefy/helpers':
+        specifier: 4.3.0
+        version: 4.3.0
+      yaml:
+        specifier: 2.3.4
+        version: 2.3.4
     devDependencies:
       '@swc/cli':
         specifier: 0.1.63
@@ -3355,6 +3368,9 @@ packages:
 
   '@js-joda/core@5.5.3':
     resolution: {integrity: sha512-7dqNYwG8gCt4hfg5PKgM7xLEcgSBcx/UgC92OMnhMmvAnq11QzDFPrxUkNR/u5kn17WWLZ8beZ4A3Qrz4pZcmQ==}
+
+  '@lowdefy/helpers@4.3.0':
+    resolution: {integrity: sha512-pQUq6oy5AC/biC+xgfIwa+QlOQ8Yn3v8m1BI1skqm9BkL1N7sb8MPZVG5ep/SEDxatZ0BERlah3OjjCVCDP2sA==}
 
   '@manypkg/find-root@1.1.0':
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
@@ -10987,6 +11003,10 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.4.15
 
   '@js-joda/core@5.5.3': {}
+
+  '@lowdefy/helpers@4.3.0':
+    dependencies:
+      lodash.merge: 4.6.2
 
   '@manypkg/find-root@1.1.0':
     dependencies:
