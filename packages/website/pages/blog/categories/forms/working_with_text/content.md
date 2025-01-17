@@ -19,7 +19,7 @@ In the example below, the name fields are configured with the basic `text` type 
 The password field masks the user's input by replacing their input with dots.
 
 ```yaml ldf
-_ref: pages/blog/categories/forms/TextInput/name_pw_form.yaml
+_ref: pages/blog/categories/forms/working_with_text/name_pw_form.yaml
 ```
 
 Other types include `url` and `number`.
@@ -28,7 +28,7 @@ There are a few special types of text input blocks with additional features.
 The `PhoneNumberInput` block, for example, features a dropdown country selector for the dialing code.
 
 ```yaml ldf
-_ref: pages/blog/categories/forms/TextInput/phone_input.yaml
+_ref: pages/blog/categories/forms/working_with_text/phone_input.yaml
 ```
 
 ### Required Input and Validation
@@ -50,7 +50,7 @@ A common use case for this action would be to ensure that an email address inclu
 This can be accomplished with regex, as seen in the example below.
 
 ```yaml ldf
-_ref: pages/blog/categories/forms/TextInput/email_validate.yaml
+_ref: pages/blog/categories/forms/working_with_text/email_validate.yaml
 ```
 
 Note that the regex above has been truncated. The complete pattern can be seen below.  

@@ -1,9 +1,14 @@
-id: code_row
+id: name_and_password_input
 type: Box
+layout:
+  contentGutter: 16
+  gutter: 16
 blocks:
 
   - id: markdown_code
     type: MarkdownWithCode
+    layout:
+      span: 8
     properties:
       content: |
         ```yaml
@@ -29,10 +34,11 @@ blocks:
               type: password
         ```
 
-  - id: text_form_column
-    type: Box
+  - id: name_and_password_render
+    type: Card
     layout: 
       span: 16
+      align: middle
     blocks:
       - id: form_description
         type: Markdown

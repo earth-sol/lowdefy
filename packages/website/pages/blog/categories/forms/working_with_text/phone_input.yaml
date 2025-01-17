@@ -1,8 +1,13 @@
-id: code_row
+id: phone_input
 type: Box
+layout:
+  contentGutter: 16
+  gutter: 16
 blocks:
   - id: markdown_code
     type: MarkdownWithCode
+    layout:
+      span: 8
     properties:
       content: |
         ```yaml
@@ -15,6 +20,9 @@ blocks:
 
   - id: phone_number
     type: PhoneNumberInput
+    layout:
+      span: 16
+      align: middle
     properties:
       label: 
         title: Phone Number
