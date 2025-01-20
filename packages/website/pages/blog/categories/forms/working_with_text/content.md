@@ -49,7 +49,7 @@ _ref: pages/blog/categories/forms/working_with_text/form_with_props.yaml
 
 #### disabled
 
-This property determines whether a block can be edited by the user.
+This property, applied to the Name field, determines whether a block can be edited by the user.
 By default, this property is set to `false`.
 Setting its value to true greys out the block, and changes the cursor to indicate that it cannot be clicked.
 
@@ -58,17 +58,21 @@ Setting its value to true greys out the block, and changes the cursor to indicat
 The label of an input field refers to the title that is displayed to the user.
 This property has its own set of properties, allowing you to change its position, for example, or decide whether it should have a colon or not.
 
-For example, you may choose to disable a field, set a maximum length, or add a button to clear its input.
-
-#### allowClear
-
-This property adds a button to clear the field of its current input.
+This property has been set on all 3 fields to remove the colon, and the label of the Surname field has been aligned to the right.
 
 #### maxLength
 
 This sets the maximum amount of characters allowed in an input field.
+In the example above, the surname field has been limited to 8 characters.
 
-These are just a few of the options available.
+#### allowClear
+
+This property adds a button to clear the field of its current input, as seen in the Message field above.
+
+> Also note that the Message field is a `TextArea` block rather than `TextInput`.
+> This block is designed for multi-line and open-ended input.
+
+The examples above are not the most effective use-cases for these properties, but they do illustrate some of the options available.
 
 Along with `state` there are other properties that can be given a custom default value.
 The `PhoneNumberInput` block is a great example of this feature, with a dropdown selector for a country-specific dialing code.
