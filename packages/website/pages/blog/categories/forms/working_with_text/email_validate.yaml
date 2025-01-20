@@ -66,8 +66,7 @@ blocks:
               - message: Please provide a valid email address.
                 status: error
                 pass:
-                  _regex: '^[a-zA-Z]+@[a-zA-Z]+\.{1}[a-zA-Z]{2,}$'
-                  # _regex: '^(((?<exc>[^<>()\[\]\\.,;:\s@"]+)\.*(?&exc))|(".+"))@(\[((?<ip>[0-9]{1,3})\.){3}(?&ip)]|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
+                  _regex: '^[a-zA-Z0-9]+@[a-zA-Z]+\.{1}[a-zA-Z]{2,}$'
             properties:
               title: email
           - id: submit_button

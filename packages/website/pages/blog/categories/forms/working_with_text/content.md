@@ -24,12 +24,67 @@ _ref: pages/blog/categories/forms/working_with_text/name_pw_form.yaml
 
 Other types include `url` and `number`.
 
-There are a few special types of text input blocks with additional features.
-The `PhoneNumberInput` block, for example, features a dropdown country selector for the dialing code.
+### State
+
+Blocks in a Lowdefy app can react to changes in State.
+For example, if two blocks have their values in State, text in one block can dynamically change based on the input of the other. The block can even be configured to be hidden if the State of the other meets certain criteria.
+
+In the example below, A username is dynamically generated with the user's initial and surname.
+
+```yaml ldf
+_ref: pages/blog/categories/forms/working_with_text/form_state.yaml
+```
+
+Note the usage of the `if_none` property. By default, the state is set to "null".
+
+### Properties
+
+The default configuration for each block acts as a skeleton for the developer to tweak to their needs.
+
+An intuitive set of optional properties can be used to fine tune the functionality and appearance of the block.
+
+```yaml ldf
+_ref: pages/blog/categories/forms/working_with_text/form_with_props.yaml
+```
+
+#### disabled
+
+This property determines whether a block can be edited by the user.
+By default, this property is set to `false`.
+Setting its value to true greys out the block, and changes the cursor to indicate that it cannot be clicked.
+
+#### label
+
+The label of an input field refers to the title that is displayed to the user.
+This property has its own set of properties, allowing you to change its position, for example, or decide whether it should have a colon or not.
+
+For example, you may choose to disable a field, set a maximum length, or add a button to clear its input.
+
+#### allowClear
+
+This property adds a button to clear the field of its current input.
+
+#### maxLength
+
+This sets the maximum amount of characters allowed in an input field.
+
+These are just a few of the options available.
+
+Along with `state` there are other properties that can be given a custom default value.
+The `PhoneNumberInput` block is a great example of this feature, with a dropdown selector for a country-specific dialing code.
 
 ```yaml ldf
 _ref: pages/blog/categories/forms/working_with_text/phone_input.yaml
 ```
+
+The first example shows the default value, Afghanistan, which is first in the list alphabetically.
+
+It is likely that your team is located in a different region.
+The `defaultRegion` property can be set to your region, and there is also a property to limit the user's selection to a smaller subset if required.
+This is illustrated in the second example.
+
+> Country codes follow the ISO 3166-1 Alpha 2 standard.  
+> The full list of these codes can be found [here](https://localizely.com/iso-3166-1-alpha-2-list/).
 
 ### Required Input and Validation
 
@@ -53,39 +108,18 @@ This can be accomplished with regex, as seen in the example below.
 _ref: pages/blog/categories/forms/working_with_text/email_validate.yaml
 ```
 
-Note that the regex above has been truncated. The complete pattern can be seen below.  
+Note that this is a simplified regex pattern.
+A more complex regex pattern, such as the one below, can be used to account for additional cases.
+
 `'^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'`
+
+This pattern would allow for a '.' or '-' character in the name, an IP address as the top level domain, and would prevent usage of specific special characters.
 
 The first time a `Validate` action is called, validation errors and warnings are shown to the user.
 
 Following this, the validation can be reset with the `ResetValidation` action. To reset both the validation status and the page state, the `Reset` action can be used instead.
 
 The `Validate` action can also target specific blocks with the `blockId` or `blockIds` params.
-
-### Properties
-
-The default configuration for each block acts as a skeleton for the developer to tweak to their needs.
-
-An intuitive set of optional properties can be used to fine tune the functionality and appearance of the block.
-
-#### allowClear
-
-This property adds a button to clear the field of its current input.
-
-#### disabled
-
-This property determines whether a block can be edited by the user.
-By default, this property is set to `false`.
-Setting its value to true greys out the block, and changes the cursor to indicate that it cannot be clicked.
-
-#### label
-
-The label of an input field refers to the title that is displayed to the user.
-This property has its own set of properties, allowing you to change its position, for example, or decide whether it should have a colon or not.
-
-For example, you may choose to disable a field, set a maximum length, or add a button to clear its input.
-
-These are just a few of the options available.
 
 [Our docs](https://docs.lowdefy.com/TextInput) feature a complete list of the properties that can be set on TextInput blocks.
 
