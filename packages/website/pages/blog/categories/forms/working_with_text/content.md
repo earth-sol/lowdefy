@@ -15,12 +15,17 @@ Some examples of Lowdefy's Input Blocks include:
 
 TextInput blocks have a `type` field, allowing them to adapt to the requirements of different use cases.
 
-In the example below, the name fields are configured with the basic `text` type property.
-The password field masks the user's input by replacing their input with dots.
+Let's consider a form with 4 TextInput blocks.
 
 ```yaml ldf
+<<<<<<< HEAD:packages/website/pages/blog/categories/forms/working_with_text/content.md
 _ref: pages/blog/categories/forms/working_with_text/name_pw_form.yaml
+=======
+_ref: pages/blog/categories/forms/TextInput/text_form.yaml
+>>>>>>> parent of ca9098217 (feat(mkt):  post content):packages/website/pages/blog/categories/forms/TextInput/content.md
 ```
+
+The password field masks the user's input by replacing their input with dots, and also integrates with their password management tools.
 
 Other types include `url` and `number`.
 
@@ -49,7 +54,7 @@ _ref: pages/blog/categories/forms/working_with_text/form_with_props.yaml
 
 #### disabled
 
-This property determines whether a block can be edited by the user.
+This property, applied to the Name field, determines whether a block can be edited by the user.
 By default, this property is set to `false`.
 Setting its value to true greys out the block, and changes the cursor to indicate that it cannot be clicked.
 
@@ -58,17 +63,21 @@ Setting its value to true greys out the block, and changes the cursor to indicat
 The label of an input field refers to the title that is displayed to the user.
 This property has its own set of properties, allowing you to change its position, for example, or decide whether it should have a colon or not.
 
-For example, you may choose to disable a field, set a maximum length, or add a button to clear its input.
-
-#### allowClear
-
-This property adds a button to clear the field of its current input.
+This property has been set on all 3 fields to remove the colon, and the label of the Surname field has been aligned to the right.
 
 #### maxLength
 
 This sets the maximum amount of characters allowed in an input field.
+In the example above, the surname field has been limited to 8 characters.
 
-These are just a few of the options available.
+#### allowClear
+
+This property adds a button to clear the field of its current input, as seen in the Message field above.
+
+> Also note that the Message field is a `TextArea` block rather than `TextInput`.
+> This block is designed for multi-line and open-ended input.
+
+The examples above are not the most effective use-cases for these properties, but they do illustrate some of the options available.
 
 Along with `state` there are other properties that can be given a custom default value.
 The `PhoneNumberInput` block is a great example of this feature, with a dropdown selector for a country-specific dialing code.
@@ -95,15 +104,20 @@ With the example above, the user would not be allowed to submit the form without
 
 In order to mark a field as required, its validation criteria must be set with the `Validate` action.
 
-Input errors can occur for a few reasons, such as user typos or incorrect formatting.
+Errors can occur as the result of user typos or incorrect formatting.
 Data validation prevents these errors, and error messages can show the user how to correct them.
+
+1. User typos
+2. Unclear labels
+3. Incorrect formatting
+4. Poor data sanitisation
 
 The `Validate` action is generally configured to run before inserting information into a database with a request.
 If the field's criteria are not met, the `Validate` action will fail, which will stop the execution of actions that are defined after it.
 
 A common use case for this action would be to ensure that an email address includes an "@" symbol and ends with a top-level domain (e.g, ".com").
-This can be accomplished with regex, as seen in the example below.
 
+<<<<<<< HEAD:packages/website/pages/blog/categories/forms/working_with_text/content.md
 ```yaml ldf
 _ref: pages/blog/categories/forms/working_with_text/email_validate.yaml
 ```
@@ -112,6 +126,9 @@ Note that this is a simplified regex pattern.
 A more complex regex pattern, such as the one below, can be used to account for additional cases.
 
 `'^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'`
+=======
+The `Validate` action can target specific blocks with either the `blockIds` or `regex` params.
+>>>>>>> parent of ca9098217 (feat(mkt):  post content):packages/website/pages/blog/categories/forms/TextInput/content.md
 
 This pattern would allow for a '.' or '-' character in the name, an IP address as the top level domain, and would prevent usage of specific special characters.
 
@@ -119,7 +136,34 @@ The first time a `Validate` action is called, validation errors and warnings are
 
 Following this, the validation can be reset with the `ResetValidation` action. To reset both the validation status and the page state, the `Reset` action can be used instead.
 
+<<<<<<< HEAD:packages/website/pages/blog/categories/forms/working_with_text/content.md
 The `Validate` action can also target specific blocks with the `blockId` or `blockIds` params.
+=======
+### Properties
+
+The default configuration for each block acts as a skeleton for the developer to tweak to their needs.
+
+An intuitive set of optional properties can be used to fine tune the functionality and appearance of the block.
+
+#### allowClear
+
+This property adds a button to clear the field of its current input.
+
+#### disabled
+
+This property determines whether a block can be edited by the user.
+By default, this property is set to `false`.
+Setting its value to true greys out the block, and changes the cursor to indicate that it cannot be clicked.
+
+#### label
+
+The label of an input field refers to the title that is displayed to the user.
+This property has its own set of properties, allowing you to change its position, for example, or decide whether it should have a colon or not.
+
+For example, you may choose to disable a field, set a maximum length, or add a button to clear its input.
+
+These are just a few of the options available.
+>>>>>>> parent of ca9098217 (feat(mkt):  post content):packages/website/pages/blog/categories/forms/TextInput/content.md
 
 [Our docs](https://docs.lowdefy.com/TextInput) feature a complete list of the properties that can be set on TextInput blocks.
 

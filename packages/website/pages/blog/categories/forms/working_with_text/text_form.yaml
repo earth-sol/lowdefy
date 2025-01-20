@@ -39,7 +39,7 @@ blocks:
         type: Markdown
         properties:
           content: |
-            ### Rendered Output
+            ### Actual Output
       - id: text_form
         type: Box
         layout: 
