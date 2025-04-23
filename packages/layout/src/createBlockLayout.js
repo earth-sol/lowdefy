@@ -14,10 +14,15 @@
   limitations under the License.
 */
 
-import Area from './Area.js';
-import BlockLayout from './BlockLayout.js';
-import BlockLayoutTailwind from './BlockLayoutTailwind.js';
-import createBlockLayout from './createBlockLayout.js';
-import deriveTailwindClasses from './deriveTailwindClasses.js';
+import BlockLayout from './BlockLayout.js'; // Ant Design based layout
+import BlockLayoutTailwind from './BlockLayoutTailwind.js'; // Tailwind based layout
 
-export { Area, BlockLayout, BlockLayoutTailwind, createBlockLayout, deriveTailwindClasses };
+// Factory function to create the appropriate BlockLayout component based on configuration
+const createBlockLayout = (config = {}) => {
+  const { useTailwind = false } = config;
+  
+  // Return the appropriate BlockLayout component based on config
+  return useTailwind ? BlockLayoutTailwind : BlockLayout;
+};
+
+export default createBlockLayout;

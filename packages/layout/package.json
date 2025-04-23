@@ -47,6 +47,14 @@
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
+  "peerDependencies": {
+    "tailwindcss": "^3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "tailwindcss": {
+      "optional": true
+    }
+  },
   "devDependencies": {
     "@emotion/jest": "11.10.5",
     "@jest/globals": "28.1.3",
