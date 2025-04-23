@@ -1,0 +1,22 @@
+{
+  "name": "@lowdefy/blocks-classnames",
+  "version": "4.0.0",
+  "license": "Apache-2.0",
+  "type": "module",
+  "exports": {
+    "./blocks": "./src/blocks.js",
+    "./types": "./src/types.js"
+  },
+  "files": ["src/*"],
+  "dependencies": {
+    "@lowdefy/block-utils": "4.0.0",
+    "@lowdefy/blocks-antd": "4.0.0",
+    "@lowdefy/blocks-basic": "4.0.0",
+    "@lowdefy/blocks-markdown": "4.0.0",
+    "@lowdefy/helpers": "4.0.0",
+    "classnames": "^2.3.2"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
+}
